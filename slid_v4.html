@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultrafilter AI - AI NPC 基础设施合作提案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8F8F9;
+            --text-color: #1A1A1A;
+            --accent-blue: #005FF7;
+            --line-color: #D2D2D7;
+            --slide-width: 1280px;
+            --slide-height: 720px;
+            --content-max-width: 1000px;
+        }
+        body {
+            font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif;
+            background-color: #222;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slide {
+            width: var(--slide-width);
+            height: var(--slide-height);
+            background-color: var(--bg-color);
+            position: relative;
+            margin: 40px 0;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            padding: 0 80px;
+            box-sizing: border-box;
+        }
+        .slide-inner {
+            width: 100%;
+            max-width: var(--content-max-width);
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        h1, h2 {
+            font-family: 'Montserrat', 'PingFang SC', sans-serif;
+            letter-spacing: -0.01em;
+            color: var(--text-color);
+        }
+        .accent-line {
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-blue);
+            margin-bottom: 24px;
+        }
+        .content-area {
+            width: 52%;
+            padding-right: 50px;
+        }
+        .diagram-area {
+            width: 48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .npc-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .node {
+            border: 1.5px solid var(--text-color);
+            border-radius: 8px;
+            padding: 10px 18px;
+            background: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 130px;
+        }
+        .node-accent {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            background: rgba(0, 95, 247, 0.05);
+        }
+        .node-dark {
+            background: var(--text-color);
+            color: white;
+        }
+        .connector {
+            width: 1.5px;
+            background-color: var(--line-color);
+            flex-grow: 1;
+        }
+        .footer-info {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: var(--content-max-width);
+            font-size: 0.7rem;
+            color: #999;
+            letter-spacing: 0.1em;
+        }
+        .link-text {
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .link-text:hover {
+            border-color: var(--accent-blue);
+        }
+        .cta-button {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 12px 32px;
+            background-color: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: AI NPC 的能力来自知识 -->
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="content-area">
+                <span class="npc-tag">脑花 APP 生态叙事</span>
+                <div class="accent-line"></div>
+                <h1 class="text-5xl font-bold leading-tight mb-8">AI NPC 的能力<br>来自知识</h1>
+                <p class="text-xl text-gray-500 font-light leading-relaxed mb-10">
+                    脑花 APP 的核心愿景，是让用户能够与 AI NPC 进行自然交互。<br>
+                    而 NPC 的能力不仅来自模型，更来自它对本地知识的访问能力。
+                </p>
+                <div class="grid grid-cols-2 gap-6 text-sm">
+                    <div class="border-l-2 border-gray-200 pl-4">
+                        <p class="font-semibold mb-1">企业/专业知识</p>
+                        <p class="text-xs text-gray-400">深度专业领域的 NPC</p>
+                    </div>
+                    <div class="border-l-2 border-gray-200 pl-4">
+                        <p class="font-semibold mb-1">家庭/个人记忆</p>
+                        <p class="text-xs text-gray-400">具备情感连接的 NPC</p>
+                    </div>
+                </div>
+            </div>
+            <div class="diagram-area">
+                <svg width="340" height="420" viewBox="0 0 400 500">
+                    <rect x="150" y="20" width="100" height="40" rx="4" fill="none" stroke="#D2D2D7" stroke-width="1.5" />
+                    <text x="200" y="45" text-anchor="middle" font-size="12" fill="#666">文档</text>
+                    <rect x="20" y="100" width="100" height="40" rx="4" fill="none" stroke="#D2D2D7" stroke-width="1.5" />
+                    <text x="70" y="125" text-anchor="middle" font-size="12" fill="#666">照片</text>
+                    <rect x="280" y="100" width="100" height="40" rx="4" fill="none" stroke="#D2D2D7" stroke-width="1.5" />
+                    <text x="330" y="125" text-anchor="middle" font-size="12" fill="#666">PDFs</text>
+                    <rect x="150" y="180" width="100" height="40" rx="4" fill="none" stroke="#D2D2D7" stroke-width="1.5" />
+                    <text x="200" y="205" text-anchor="middle" font-size="12" fill="#666">截图</text>
+                    <path d="M200 60 V100" stroke="#D2D2D7" stroke-width="1" />
+                    <path d="M120 120 H140" stroke="#D2D2D7" stroke-width="1" />
+                    <path d="M280 120 H260" stroke="#D2D2D7" stroke-width="1" />
+                    <path d="M200 180 V160" stroke="#D2D2D7" stroke-width="1" />
+                    <rect x="120" y="250" width="160" height="50" rx="8" fill="white" stroke="#1A1A1A" stroke-width="2" />
+                    <text x="200" y="282" text-anchor="middle" font-size="14" font-weight="bold">本地知识</text>
+                    <line x1="200" y1="300" x2="200" y2="380" stroke="#005FF7" stroke-width="2" stroke-dasharray="4" />
+                    <circle cx="200" cy="425" r="40" fill="#005FF7" />
+                    <text x="200" y="430" text-anchor="middle" font-size="14" fill="white" font-weight="bold">AI NPC</text>
+                </svg>
+            </div>
+        </div>
+        <div class="footer-info text-gray-400">01 / KNOWLEDGE EMPOWERS NPC</div>
+    </div>
+
+    <!-- PAGE 2: AI NPC 如何访问本地知识 -->
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="content-area">
+                <span class="npc-tag">交互逻辑：从对话到检索</span>
+                <div class="accent-line"></div>
+                <h2 class="text-4xl font-bold mb-12">AI NPC 如何访问本地知识？</h2>
+                <div class="space-y-6 text-sm mb-12">
+                    <div class="flex items-center">
+                        <span class="w-32 font-bold text-gray-900">Research NPC</span> <span class="text-gray-400">→ 检索学术论文</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 font-bold text-gray-900">Family NPC</span> <span class="text-gray-400">→ 检索家庭照片</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 font-bold text-gray-900">Business NPC</span> <span class="text-gray-400">→ 检索企业文档</span>
+                    </div>
+                </div>
+                <p class="text-lg border-t border-gray-100 pt-8 text-gray-600 italic leading-relaxed">
+                    “若 AI NPC 想真正使用本地知识，就需要一层稳定的内容检索能力。”
+                </p>
+            </div>
+            <div class="diagram-area">
+                <div class="flex flex-col items-center space-y-6">
+                    <div class="node">用户 (User)</div>
+                    <div class="connector h-6"></div>
+                    <div class="node node-accent">AI NPC</div>
+                    <div class="connector h-6"></div>
+                    <div class="node">Skill (技能)</div>
+                    <div class="connector h-6"></div>
+                    <div class="node node-dark">访问本地知识</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-info text-gray-400">02 / NPC INTERACTION FLOW</div>
+    </div>
+
+    <!-- PAGE 3: Local Knowledge Skills -->
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="content-area">
+                <span class="npc-tag">SKILLHUB 类别定义</span>
+                <div class="accent-line"></div>
+                <h2 class="text-4xl font-bold mb-8">Local Knowledge<br>Skills</h2>
+                <p class="text-lg text-gray-500 mb-10 leading-relaxed">
+                    在 SkillHub 生态中，这是一类通过访问本地知识，<br>为 AI NPC 提供记忆与知识能力的技能。
+                </p>
+                <div class="flex flex-wrap gap-3 mb-10">
+                    <span class="px-3 py-1.5 bg-white border border-gray-200 text-[10px] font-bold">DOCUMENT SEARCH</span>
+                    <span class="px-3 py-1.5 bg-white border border-gray-200 text-[10px] font-bold">PHOTO SEARCH</span>
+                    <span class="px-3 py-1.5 bg-white border border-gray-200 text-[10px] font-bold">RESEARCH PAPERS</span>
+                    <span class="px-3 py-1.5 bg-white border border-gray-200 text-[10px] font-bold">SCREENSHOT SEARCH</span>
+                </div>
+                <div class="bg-zinc-900 text-white px-5 py-4 inline-block">
+                    <p class="text-[10px] tracking-widest uppercase opacity-60 mb-1 text-zinc-400">Essential Layer</p>
+                    <p class="text-lg font-bold">Content Search Layer</p>
+                </div>
+            </div>
+            <div class="diagram-area">
+                <svg width="340" height="420" viewBox="0 0 400 500">
+                    <rect x="120" y="40" width="160" height="50" rx="8" fill="white" stroke="#1A1A1A" stroke-width="2" />
+                    <text x="200" y="72" text-anchor="middle" font-size="16" font-weight="bold">SkillHub</text>
+                    <line x1="200" y1="90" x2="200" y2="130" stroke="#D2D2D7" stroke-width="1.5" />
+                    <line x1="80" y1="130" x2="320" y2="130" stroke="#D2D2D7" stroke-width="1.5" />
+                    <line x1="80" y1="130" x2="80" y2="160" stroke="#D2D2D7" stroke-width="1.5" />
+                    <line x1="200" y1="130" x2="200" y2="160" stroke="#D2D2D7" stroke-width="1.5" />
+                    <line x1="320" y1="130" x2="320" y2="160" stroke="#D2D2D7" stroke-width="1.5" />
+                    <rect x="30" y="160" width="100" height="40" rx="4" fill="none" stroke="#D2D2D7" stroke-width="1.5" />
+                    <text x="80" y="185" text-anchor="middle" font-size="10" fill="#999">Writing Skills</text>
+                    <rect x="150" y="160" width="100" height="40" rx="4" fill="none" stroke="#D2D2D7" stroke-width="1.5" />
+                    <text x="200" y="185" text-anchor="middle" font-size="10" fill="#999">Research Skills</text>
+                    <rect x="270" y="160" width="100" height="40" rx="4" fill="none" stroke="#005FF7" stroke-width="1.5" />
+                    <text x="320" y="185" text-anchor="middle" font-size="10" fill="#005FF7" font-weight="bold">Knowledge</text>
+                    <line x1="320" y1="200" x2="320" y2="250" stroke="#005FF7" stroke-width="2" />
+                    <rect x="220" y="250" width="160" height="50" rx="8" fill="#005FF7" />
+                    <text x="300" y="282" text-anchor="middle" font-size="13" fill="white" font-weight="bold">本地知识技能</text>
+                </svg>
+            </div>
+        </div>
+        <div class="footer-info text-gray-400">03 / SKILL CATEGORY</div>
+    </div>
+
+    <!-- PAGE 4: 为什么 Search Layer 会成为基础设施 -->
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="content-area">
+                <span class="npc-tag">生态演进逻辑</span>
+                <div class="accent-line"></div>
+                <h2 class="text-4xl font-bold leading-tight mb-6">为什么 Search Layer 会成为<br>SkillHub 的基础设施</h2>
+                <p class="text-blue-600 font-semibold tracking-widest text-xs mb-8 uppercase">Many Skills, One Shared Capability</p>
+                <div class="space-y-4 text-[13px] text-gray-500 leading-relaxed">
+                    <p>在 SkillHub 生态中，越来越多的 Skill 需要访问本地知识：</p>
+                    <ul class="space-y-1 ml-2">
+                        <li>• <span class="text-gray-900 font-medium">Research Skills</span> → 检索论文</li>
+                        <li>• <span class="text-gray-900 font-medium">Memory Skills</span> → 检索照片</li>
+                        <li>• <span class="text-gray-900 font-medium">Business Skills</span> → 检索文档</li>
+                    </ul>
+                    <p>如果每个 Skill 都单独实现 <span class="text-gray-900">索引 / OCR / 检索 / 排序</span>，开发成本会迅速增加，生态扩展也会变慢。</p>
+                    <p class="text-black font-semibold mt-6">
+                        因此在生态演化中，通常会自然形成一层共享能力：<br>
+                        <span class="text-blue-600">Content Search Layer</span>
+                    </p>
+                    <p class="text-xs italic mt-2">这一层能力会被多个 Skill 共同使用。</p>
+                </div>
+            </div>
+            <div class="diagram-area">
+                <svg width="340" height="420" viewBox="0 0 400 450">
+                    <rect x="150" y="20" width="100" height="40" rx="6" fill="white" stroke="#1A1A1A" stroke-width="2"/>
+                    <text x="200" y="45" text-anchor="middle" font-size="13" font-weight="bold">SkillHub</text>
+                    <line x1="200" y1="60" x2="200" y2="90" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="80" y1="90" x2="320" y2="90" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="80" y1="90" x2="80" y2="120" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="200" y1="90" x2="200" y2="120" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="320" y1="90" x2="320" y2="120" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <rect x="30" y="120" width="100" height="40" rx="6" fill="white" stroke="#D2D2D7" stroke-width="1.2"/>
+                    <text x="80" y="145" text-anchor="middle" font-size="11" fill="#666">Research</text>
+                    <rect x="150" y="120" width="100" height="40" rx="6" fill="white" stroke="#D2D2D7" stroke-width="1.2"/>
+                    <text x="200" y="145" text-anchor="middle" font-size="11" fill="#666">Memory</text>
+                    <rect x="270" y="120" width="100" height="40" rx="6" fill="white" stroke="#D2D2D7" stroke-width="1.2"/>
+                    <text x="320" y="145" text-anchor="middle" font-size="11" fill="#666">Business</text>
+                    <line x1="80" y1="160" x2="80" y2="200" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="200" y1="160" x2="200" y2="200" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="320" y1="160" x2="320" y2="200" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="80" y1="200" x2="320" y2="200" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <line x1="200" y1="200" x2="200" y2="210" stroke="#D2D2D7" stroke-width="1.5"/>
+                    <rect x="120" y="210" width="160" height="50" rx="8" fill="#005FF7"/>
+                    <text x="200" y="240" text-anchor="middle" font-size="14" fill="white" font-weight="bold">Search Layer</text>
+                    <line x1="200" y1="260" x2="200" y2="310" stroke="#D2D2D7" stroke-width="2" stroke-dasharray="4"/>
+                    <rect x="130" y="310" width="140" height="40" rx="6" fill="none" stroke="#D2D2D7" stroke-dasharray="4"/>
+                    <text x="200" y="335" text-anchor="middle" font-size="11" fill="#999">本地数据 (Local Data)</text>
+                </svg>
+            </div>
+        </div>
+        <div class="footer-info text-gray-400">04 / ECOSYSTEM INFRASTRUCTURE</div>
+    </div>
+
+    <!-- PAGE 5: Ultrafilter 定位 -->
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="content-area">
+                <span class="npc-tag">我们的角色</span>
+                <div class="accent-line"></div>
+                <h1 class="text-5xl font-bold mb-2">Ultrafilter AI</h1>
+                <!-- 醒目的官网链接插入 -->
+                <a href="https://www.ulfilter.com" target="_blank" class="link-text mb-10 block">www.ulfilter.com</a>
+                
+                <p class="text-blue-600 font-semibold tracking-widest text-xs mb-10 uppercase">让 AI NPC 更容易访问本地知识</p>
+                <div class="space-y-6 text-sm">
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">多模态内容搜索</h4>
+                        <p class="text-xs text-gray-500">支持文档、图片、PDF、截图等多种本地内容类型。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">NPC 友好的结构化返回</h4>
+                        <p class="text-xs text-gray-500">快速检索与结构化结果，方便 AI NPC 进行实时交互与决策。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">极致工程优化</h4>
+                        <p class="text-xs text-gray-500">面向海量本地数据，提供高效索引与灵活部署能力。</p>
+                    </div>
+                </div>
+                <div class="mt-10 py-3 border-l-4 border-blue-600 pl-5 bg-blue-50">
+                    <p class="text-base font-bold text-blue-900 leading-tight">
+                        “我们希望成为 AI NPC 生态中负责<span class="text-blue-600">“内容搜索这一层”</span>的开发者。”
+                    </p>
+                </div>
+            </div>
+            <div class="diagram-area">
+                <div class="flex flex-col items-center w-full max-w-xs space-y-4">
+                    <div class="flex space-x-2 w-full justify-between">
+                        <div class="border border-gray-200 p-2 text-[10px] rounded">Research</div>
+                        <div class="border border-gray-200 p-2 text-[10px] rounded">Memory</div>
+                        <div class="border border-gray-200 p-2 text-[10px] rounded">Business</div>
+                    </div>
+                    <div class="connector h-6"></div>
+                    <div class="w-full bg-[#005FF7] text-white p-6 rounded-xl text-center shadow-lg">
+                        <div class="text-[10px] opacity-70 uppercase mb-1">Search Layer</div>
+                        <div class="text-xl font-bold tracking-widest">ULTRAFILTER</div>
+                    </div>
+                    <div class="connector h-6"></div>
+                    <div class="w-full border-2 border-dashed border-gray-300 p-6 rounded-xl text-center">
+                        <div class="text-[10px] text-gray-400 uppercase">本地知识资产</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-info text-gray-400">05 / CORE POSITIONING</div>
+    </div>
+
+    <!-- PAGE 6: 合作方式 -->
+    <div class="slide bg-zinc-900 text-white">
+        <div class="slide-inner">
+            <div class="content-area">
+                <span class="npc-tag text-blue-400">未来展望</span>
+                <div class="accent-line bg-blue-400"></div>
+                <h2 class="text-4xl font-bold text-white mb-10 leading-tight">Proposed Collaboration</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <span class="text-blue-400 font-bold mr-4">01</span>
+                        <div>
+                            <p class="font-bold text-sm">共创 SkillHub 的技能类别</p>
+                            <p class="text-[11px] text-zinc-500 mt-1">共同定义脑花 APP 内 Local Knowledge Skills 的交互准则。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-blue-400 font-bold mr-4">02</span>
+                        <div>
+                            <p class="font-bold text-sm">为 AI NPC 开发首批本地搜索 Skill</p>
+                            <p class="text-[11px] text-zinc-500 mt-1">展示文档 / 照片 / 研究等标杆级的本地知识检索体验。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-blue-400 font-bold mr-4">03</span>
+                        <div>
+                            <p class="font-bold text-sm">赋能 AI NPC 生态</p>
+                            <p class="text-[11px] text-zinc-500 mt-1">通过内容检索能力，让更多开发者构建可访问本地知识的 AI NPC。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <p class="text-xl font-light text-zinc-300">
+                        我们希望成为 <span class="text-white font-bold">SkillHub</span> 的早期开发者之一，并共同探索 <span class="text-blue-400 font-bold">Local Knowledge Skills</span> 的生态潜力。
+                    </p>
+                    <!-- 结尾处醒目的 CTA 按钮 -->
+                    <a href="https://www.ulfilter.com" target="_blank" class="cta-button">访问官网了解更多</a>
+                </div>
+            </div>
+            <div class="diagram-area">
+                <div class="flex flex-col items-center space-y-3 scale-90">
+                    <div class="node node-dark border-zinc-700 bg-zinc-800">SkillHub</div>
+                    <div class="connector h-5 bg-zinc-800"></div>
+                    <div class="node node-dark border-zinc-700 bg-zinc-800 text-xs">Local Knowledge Skills</div>
+                    <div class="connector h-5 bg-blue-500"></div>
+                    <div class="node node-accent bg-[#005FF7] text-white border-blue-400 font-bold">Ultrafilter</div>
+                    <div class="connector h-5 bg-zinc-800"></div>
+                    <div class="node node-dark border-zinc-700 bg-zinc-800 text-xs">本地知识</div>
+                    <p class="mt-4 text-[10px] text-blue-400 font-bold uppercase tracking-widest">Early Developer</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-info text-zinc-600">06 / PARTNERSHIP</div>
+    </div>
+
+</body>
+</html>

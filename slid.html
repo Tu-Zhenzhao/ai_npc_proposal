@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultrafilter AI - SkillHub Collaboration Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F5F5F7;
+            --text-color: #1D1D1F;
+            --accent-color: #0066CC;
+            --slide-width: 1280px;
+            --slide-height: 720px;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .presentation-container {
+            width: var(--slide-width);
+            height: var(--slide-height);
+            background-color: var(--bg-color);
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            margin: 40px 0;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 80px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-color);
+        }
+        .accent-bar {
+            width: 40px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin-bottom: 24px;
+        }
+        .image-overlay {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 45%;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(20%);
+        }
+        .content-left {
+            width: 55%;
+            z-index: 10;
+        }
+        .content-full {
+            width: 100%;
+            z-index: 10;
+        }
+        .list-item {
+            margin-bottom: 20px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+        .list-item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .list-item-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 0.2em;
+        }
+        .category-tag {
+            display: inline-block;
+            border: 1px solid var(--text-color);
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        /* Navigation (Simple Scroll) */
+        .nav-hint {
+            position: fixed;
+            bottom: 20px;
+            color: white;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-hint">向下滚动查看下一页 | Scroll down for next slide</div>
+
+    <!-- SLIDE 1 -->
+    <div class="presentation-container">
+        <div class="slide">
+            <div class="content-left flex flex-col justify-center">
+                <div class="accent-bar"></div>
+                <h1 class="text-6xl leading-tight mb-8">LOCAL<br>KNOWLEDGE<br>SKILLS</h1>
+                <p class="text-xl font-light leading-relaxed text-gray-600 max-w-md">
+                    SkillHub 生态的自然演进：<br>
+                    从单一技能到“本地知识”赋能的飞跃。
+                </p>
+                <div class="mt-12 flex flex-wrap max-w-sm">
+                    <span class="category-tag">RESEARCH</span>
+                    <span class="category-tag">CREATIVE</span>
+                    <span class="category-tag">BUSINESS</span>
+                    <span class="category-tag">MEMORY</span>
+                </div>
+            </div>
+            <div class="image-overlay" style="background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1200');"></div>
+            <div class="footer">01 / PROLOGUE</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="presentation-container">
+        <div class="slide">
+            <div class="content-left flex flex-col justify-center">
+                <h2 class="text-4xl mb-12">隐形的摩擦成本</h2>
+                <div class="space-y-8">
+                    <div class="list-item">
+                        <div class="list-item-title">开发壁垒</div>
+                        <div class="list-item-desc">每个 Skill 独立开发索引与检索逻辑，导致高昂的重复研发投入。</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-title">性能瓶颈</div>
+                        <div class="list-item-desc">本地数据的海量性与复杂性，使得单体 Skill 难以实现极致的检索响应。</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-title">体验割裂</div>
+                        <div class="list-item-desc">缺乏统一的检索标准，导致用户在不同技能间的本地数据调用体验不稳定。</div>
+                    </div>
+                </div>
+                <p class="mt-12 text-blue-600 font-semibold">生态呼唤：Search Infrastructure</p>
+            </div>
+            <div class="image-overlay" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200');"></div>
+            <div class="footer">02 / CHALLENGE</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="presentation-container">
+        <div class="slide">
+            <div class="content-full flex flex-col justify-center items-center text-center">
+                <div class="accent-bar mx-auto"></div>
+                <h2 class="text-4xl mb-6">Local Knowledge Skills</h2>
+                <p class="text-gray-500 mb-16 max-w-2xl">
+                    在 SkillHub 中，这是一类能够深入触达用户本地资产的特定技能群组。
+                </p>
+                
+                <div class="grid grid-cols-5 gap-8 w-full max-w-5xl">
+                    <div class="text-center">
+                        <div class="h-24 flex items-center justify-center mb-4 border-b border-gray-200">
+                            <svg class="w-8 h-8 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest">Document</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="h-24 flex items-center justify-center mb-4 border-b border-gray-200">
+                            <svg class="w-8 h-8 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest">Photo</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="h-24 flex items-center justify-center mb-4 border-b border-gray-200">
+                            <svg class="w-8 h-8 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest">Research</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="h-24 flex items-center justify-center mb-4 border-b border-gray-200">
+                            <svg class="w-8 h-8 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest">Screenshot</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="h-24 flex items-center justify-center mb-4 border-b border-gray-200">
+                            <svg class="w-8 h-8 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5L4.9 5.1c-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1l2.6 2.6c.3.3.7.5 1.1.5h8.9c.4 0 .8-.2 1.1-.5l2.6-2.6c.3-.3.5-.7.5-1.1V5.2c0-.4-.2-.8-.5-1.1l-2.6-2.6c-.3-.4-.7-.5-1.1-.5z"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest">Notes</span>
+                    </div>
+                </div>
+
+                <div class="mt-20 px-8 py-4 border border-black text-sm uppercase tracking-tighter">
+                    Shared Content Search Layer
+                </div>
+            </div>
+            <div class="footer">03 / CATEGORY</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="presentation-container">
+        <div class="slide">
+            <div class="content-left flex flex-col justify-center">
+                <h1 class="text-5xl mb-2">ULTRAFILTER AI</h1>
+                <p class="text-sm tracking-widest text-blue-600 mb-12 uppercase">Search Infrastructure for AI Agents</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-lg">多模态内容搜索</h3>
+                        <p class="text-sm text-gray-500">打破文档、图片、PDF、截图的边界，实现真正的全内容理解与索引。</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">Agent 友好的结构化返回</h3>
+                        <p class="text-sm text-gray-500">专为 Skill 调用设计的结构化结果，大幅降低 Skill 开发者的集成门槛。</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">工程化深度优化</h3>
+                        <p class="text-sm text-gray-500">面向海量本地文档的高效索引，支持灵活的部署与极致的响应速度。</p>
+                    </div>
+                </div>
+                
+                <p class="mt-12 text-sm italic border-l-2 border-black pl-4">
+                    “我们不是在做一个 Skill，而是在支撑整个生态的搜索底座。”
+                </p>
+            </div>
+            <div class="image-overlay" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200');"></div>
+            <div class="footer">04 / POSITIONING</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="presentation-container">
+        <div class="slide bg-zinc-900 text-white">
+            <div class="content-full flex flex-col justify-center">
+                <div class="accent-bar"></div>
+                <h2 class="text-5xl text-white mb-12">PROPOSED<br>COLLABORATION</h2>
+                
+                <div class="grid grid-cols-3 gap-12 mb-20">
+                    <div>
+                        <span class="text-blue-500 text-2xl font-bold mb-4 block">01</span>
+                        <h4 class="text-lg font-semibold mb-2">共创技能类别</h4>
+                        <p class="text-gray-400 text-sm">共同定义 Local Knowledge Skills 这一核心类别及交互标准。</p>
+                    </div>
+                    <div>
+                        <span class="text-blue-500 text-2xl font-bold mb-4 block">02</span>
+                        <h4 class="text-lg font-semibold mb-2">构建首批示例</h4>
+                        <p class="text-gray-400 text-sm">提供高水准的 Document/Photo/Research Search 示例，建立标杆。</p>
+                    </div>
+                    <div>
+                        <span class="text-blue-500 text-2xl font-bold mb-4 block">03</span>
+                        <h4 class="text-lg font-semibold mb-2">赋能 Skill 开发者</h4>
+                        <p class="text-gray-400 text-sm">作为底层能力组件，让生态内成千上万的 Skill 拥有本地搜索能力。</p>
+                    </div>
+                </div>
+
+                <div class="text-center pt-12 border-t border-zinc-800">
+                    <p class="text-xl font-light">期待成为 SkillHub 的早期开发者，共同探索生态无限可能。</p>
+                </div>
+            </div>
+            <div class="footer text-zinc-600">05 / VISION</div>
+        </div>
+    </div>
+
+</body>
+</html>

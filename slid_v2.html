@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultrafilter AI - AI NPC Infrastructure Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8F8F9;
+            --text-color: #1A1A1A;
+            --accent-blue: #005FF7;
+            --slide-width: 1280px;
+            --slide-height: 720px;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #222;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slide-deck {
+            margin: 40px 0;
+        }
+        .slide {
+            width: var(--slide-width);
+            height: var(--slide-height);
+            background-color: var(--bg-color);
+            position: relative;
+            margin-bottom: 60px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            display: flex;
+            padding: 80px;
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -0.02em;
+            color: var(--text-color);
+        }
+        .accent-line {
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-blue);
+            margin-bottom: 32px;
+        }
+        .img-panel {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 42%;
+            background-size: cover;
+            background-position: center;
+        }
+        .content-area {
+            width: 58%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 60px;
+        }
+        .npc-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+        }
+        .flow-box {
+            border: 1px solid #ddd;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            background: white;
+        }
+        .flow-arrow {
+            margin: 0 16px;
+            color: #ccc;
+        }
+        .footer-info {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            font-size: 0.7rem;
+            color: #999;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: AI NPC 的能力来自知识 -->
+    <div class="slide">
+        <div class="content-area">
+            <span class="npc-tag">脑花 APP 生态叙事</span>
+            <div class="accent-line"></div>
+            <h1 class="text-6xl font-bold leading-tight mb-8">AI NPC 的能力<br>来自知识</h1>
+            <p class="text-xl text-gray-500 font-light leading-relaxed mb-10">
+                脑花 APP 的核心愿景是实现与 AI NPC 的自然交互。<br>
+                但 NPC 的“灵魂”取决于其对本地知识的访问深度。
+            </p>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="border-l-2 border-gray-200 pl-4">
+                    <p class="text-sm font-semibold mb-1">科研/企业知识</p>
+                    <p class="text-xs text-gray-400">深度专业领域的 NPC</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-4">
+                    <p class="text-sm font-semibold mb-1">家庭/个人记忆</p>
+                    <p class="text-xs text-gray-400">具备情感连接的 NPC</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-panel" style="background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1200');"></div>
+        <div class="footer-info">01 / KNOWLEDGE EMPOWERS NPC</div>
+    </div>
+
+    <!-- PAGE 2: AI NPC 如何使用本地数据 -->
+    <div class="slide">
+        <div class="content-area w-full">
+            <span class="npc-tag">交互逻辑：从对话到检索</span>
+            <h2 class="text-4xl font-bold mb-16">AI NPC 如何使用本地数据？</h2>
+            
+            <div class="flex flex-col space-y-4 max-w-4xl">
+                <!-- Row 1 -->
+                <div class="flow-step">
+                    <div class="flow-box bg-blue-50 border-blue-100 font-semibold">User</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Research NPC</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">SkillHub</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box text-blue-600 font-bold">Search Papers</div>
+                </div>
+                <!-- Row 2 -->
+                <div class="flow-step">
+                    <div class="flow-box bg-blue-50 border-blue-100 font-semibold">User</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Family NPC</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">SkillHub</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box text-blue-600 font-bold">Search Photos</div>
+                </div>
+                <!-- Row 3 -->
+                <div class="flow-step">
+                    <div class="flow-box bg-blue-50 border-blue-100 font-semibold">User</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Business NPC</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">SkillHub</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box text-blue-600 font-bold">Search Docs</div>
+                </div>
+            </div>
+
+            <p class="mt-20 text-xl border-t border-gray-100 pt-8 text-gray-600 italic">
+                “AI NPC 若要真正进化，必须具备一层稳定的内容检索基础设施。”
+            </p>
+        </div>
+        <div class="footer-info">02 / NPC INTERACTION FLOW</div>
+    </div>
+
+    <!-- PAGE 3: SkillHub 中的一类重要 Skill -->
+    <div class="slide">
+        <div class="content-area">
+            <span class="npc-tag">SKILLHUB 类别定义</span>
+            <div class="accent-line"></div>
+            <h2 class="text-5xl font-bold mb-8">Local Knowledge<br>Skills</h2>
+            <p class="text-lg text-gray-500 mb-12">
+                在 SkillHub 生态中，这是一类通过访问本地知识<br>赋予 AI NPC “记忆”与“智库”的核心技能。
+            </p>
+            <div class="flex flex-wrap gap-3 mb-12">
+                <span class="px-4 py-2 bg-white border border-gray-200 text-xs font-semibold">DOCUMENT SEARCH</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-xs font-semibold">PHOTO SEARCH</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-xs font-semibold">RESEARCH SEARCH</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-xs font-semibold">SCREENSHOT SEARCH</span>
+            </div>
+            <div class="bg-zinc-900 text-white p-6 inline-block">
+                <p class="text-xs tracking-widest uppercase opacity-60 mb-2">Essential Layer</p>
+                <p class="text-xl font-bold">Content Search Layer</p>
+            </div>
+        </div>
+        <div class="img-panel" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200');"></div>
+        <div class="footer-info">03 / SKILL CATEGORY</div>
+    </div>
+
+    <!-- PAGE 4: Ultrafilter 定位 -->
+    <div class="slide">
+        <div class="content-area">
+            <span class="npc-tag">我们的角色</span>
+            <h1 class="text-6xl font-bold mb-2">Ultrafilter AI</h1>
+            <p class="text-blue-600 font-semibold tracking-widest text-sm mb-12 uppercase">Search Infrastructure for AI NPCs</p>
+            
+            <div class="grid grid-cols-1 gap-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-1">多模态内容搜索</h4>
+                    <p class="text-sm text-gray-500">涵盖文档、图片、PDF、截图。让 NPC 拥有跨介质的本地视野。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-1">NPC 友好的结构化返回</h4>
+                    <p class="text-sm text-gray-500">极速检索与结构化结果，专为 AI NPC 的实时决策与交互设计。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-1">极致工程优化</h4>
+                    <p class="text-sm text-gray-500">应对海量本地收藏，提供高效索引与灵活的本地化部署。</p>
+                </div>
+            </div>
+
+            <div class="mt-12 py-4 border-l-4 border-blue-600 pl-6 bg-blue-50">
+                <p class="text-lg font-bold text-blue-900">
+                    “我们希望成为 AI NPC 生态中负责内容搜索这一层的开发者。”
+                </p>
+            </div>
+        </div>
+        <div class="img-panel" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200');"></div>
+        <div class="footer-info">04 / CORE POSITIONING</div>
+    </div>
+
+    <!-- PAGE 5: 合作方式 -->
+    <div class="slide bg-zinc-900 text-white">
+        <div class="content-area w-full">
+            <span class="npc-tag text-blue-400">未来展望</span>
+            <div class="accent-line bg-blue-400"></div>
+            <h2 class="text-5xl font-bold text-white mb-16">Proposed Collaboration</h2>
+            
+            <div class="grid grid-cols-3 gap-10">
+                <div class="border-t border-zinc-700 pt-6">
+                    <span class="text-3xl font-bold text-blue-400">01</span>
+                    <h4 class="text-xl font-bold mt-4 mb-2">共创技能类别</h4>
+                    <p class="text-zinc-400 text-sm">共同定义脑花 APP 内 Local Knowledge Skills 的交互准则。</p>
+                </div>
+                <div class="border-t border-zinc-700 pt-6">
+                    <span class="text-3xl font-bold text-blue-400">02</span>
+                    <h4 class="text-xl font-bold mt-4 mb-2">构建示例 Skill</h4>
+                    <p class="text-zinc-400 text-sm">为 NPC 开发首批标杆级本地搜索能力（文档/照片/研究）。</p>
+                </div>
+                <div class="border-t border-zinc-700 pt-6">
+                    <span class="text-3xl font-bold text-blue-400">03</span>
+                    <h4 class="text-xl font-bold mt-4 mb-2">支持 NPC 进化</h4>
+                    <p class="text-zinc-400 text-sm">通过内容检索赋能更多开发者，让更多 AI NPC 访问本地资产。</p>
+                </div>
+            </div>
+
+            <div class="mt-24 text-center">
+                <p class="text-2xl font-light text-zinc-300">
+                    我们非常希望成为 <span class="text-white font-bold">SkillHub</span> 的早期开发者之一。
+                </p>
+            </div>
+        </div>
+        <div class="footer-info text-zinc-600">05 / PARTNERSHIP</div>
+    </div>
+
+</body>
+</html>
